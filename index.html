@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prumo 3D Lab · Impressão 3D em Manaus</title>
+  <meta name="description" content="Laboratório técnico em Manaus. Impressão 3D sob encomenda, modelagem, redes e manutenção. Peças personalizadas, camada por camada.">
+  <meta name="theme-color" content="#0A1E25">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Prumo 3D Lab">
+  <link rel="canonical" href="https://prumo3dlab.com.br/">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Prumo 3D Lab">
+  <meta property="og:title" content="Prumo 3D Lab · Impressão 3D em Manaus">
+  <meta property="og:description" content="Laboratório técnico em Manaus. Impressão 3D sob encomenda, modelagem, redes e manutenção. Sua ideia, camada por camada.">
+  <meta property="og:url" content="https://prumo3dlab.com.br/">
+  <meta property="og:image" content="https://prumo3dlab.com.br/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Prumo 3D Lab · Impressão 3D em Manaus">
+  <meta name="twitter:description" content="Laboratório técnico em Manaus. Impressão 3D sob encomenda, camada por camada.">
+  <meta name="twitter:image" content="https://prumo3dlab.com.br/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Prumo 3D Lab",
+    "description": "Laboratório técnico em Manaus. Impressão 3D sob encomenda, modelagem, redes e manutenção.",
+    "url": "https://prumo3dlab.com.br/",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Manaus",
+      "addressRegion": "AM",
+      "addressCountry": "BR"
+    },
+    "areaServed": "Manaus",
+    "image": "https://prumo3dlab.com.br/og-image.png"
+  }
+  </script>
+  <style>
+/* Prumo 3D Lab — landing */
+:root {
+  --petroleo: #0B3C49;
+  --noite: #0A1E25;
+  --nevoa: #F4F7F8;
+  --ciano: #0098A6;
+  --ciano-e: #22D3E0;
+  --laranja: #FF6B2C;
+  --laranja-h: #FF8149;
+  --gelo: #E8F6F8;
+  --tinta: #13262D;
+  --cinza: #5B6B73;
+  --linha: #D5DFE2;
+  --verde: #22C58B;
+  --violeta: #7C5CFF;
+  --muted: #9FC3CA;
+  --muted-2: #7FA3AB;
+  --card: #FFFFFF;
+  --night-line: rgba(232, 246, 248, 0.10);
+  --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-body: Inter, "Segoe UI", system-ui, sans-serif;
+  --shadow: 0 16px 40px rgba(10, 30, 37, 0.10);
+  --wrap: 1160px;
+  --nav-h: 76px;
+  --radius: 16px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--tinta);
+  background: var(--nevoa);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img, svg { max-width: 100%; display: block; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+[hidden] { display: none !important; }
+h1, h2, h3, p, figure { margin: 0; }
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--ciano-e);
+  outline-offset: 3px;
+}
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 12px;
+  background: var(--laranja);
+  color: var(--noite);
+  padding: 8px 14px;
+  border-radius: 8px;
+  z-index: 100;
+  font-weight: 600;
+}
+.skip:focus, .skip:focus-visible { left: 16px; }
+
+.wrap {
+  width: min(var(--wrap), calc(100% - 40px));
+  margin-inline: auto;
+}
+
+/* Typography */
+.kicker {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ciano);
+  margin-bottom: 16px;
+}
+.kicker.on-dark { color: var(--ciano-e); }
+h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  color: var(--gelo);
+}
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--petroleo);
+}
+h2.on-dark { color: var(--gelo); }
+h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+.lead {
+  font-size: 1.125rem;
+  line-height: 1.55;
+  color: var(--cinza);
+  max-width: 40rem;
+}
+.lead.on-dark { color: var(--muted); }
+.section-head { margin-bottom: 48px; max-width: 40rem; }
+.section-head h2 { margin-bottom: 12px; }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 24px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  transition: transform 0.25s var(--ease), background 0.2s, box-shadow 0.25s, color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn-primary {
+  background: var(--laranja);
+  color: var(--noite);
+  box-shadow: 0 8px 24px rgba(255, 107, 44, 0.28);
+}
+.btn-primary:hover { background: var(--laranja-h); }
+.btn-ghost {
+  background: transparent;
+  color: var(--gelo);
+  border: 1px solid var(--night-line);
+}
+.btn-ghost:hover { border-color: var(--ciano-e); color: var(--ciano-e); }
+.btn-dark {
+  background: var(--petroleo);
+  color: var(--gelo);
+}
+.btn-dark:hover { background: #0e4c5b; }
+.btn .ico { width: 18px; height: 18px; flex: 0 0 18px; }
+
+/* Nav */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: var(--nav-h);
+  background: color-mix(in srgb, var(--noite) 86%, transparent);
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  border-bottom: 1px solid var(--night-line);
+}
+.nav-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.logo-link { display: flex; align-items: center; flex: 0 0 auto; }
+.logo-h { height: 40px; width: auto; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px 28px;
+}
+.nav-links a {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gelo); }
+.nav-cta { margin-left: 8px; padding: 11px 20px; font-size: 0.95rem; }
+.nav-toggle {
+  display: none;
+  width: 44px; height: 44px;
+  border: 0; background: transparent;
+  padding: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  color: var(--gelo);
+}
+.nav-toggle span {
+  display: block;
+  width: 20px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.25s var(--ease), opacity 0.2s;
+}
+.nav.is-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav.is-open .nav-toggle span:nth-child(2) { opacity: 0; }
+.nav.is-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Hero */
+.hero {
+  position: relative;
+  background: var(--noite);
+  color: var(--gelo);
+  overflow: hidden;
+  padding: 72px 0 88px;
+  min-height: calc(100vh - var(--nav-h));
+  display: flex;
+  align-items: center;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.hero-copy .lead { margin: 24px 0 36px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted-2);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.hero-meta svg { width: 18px; height: 18px; color: var(--ciano-e); }
+.hero-visual {
+  position: relative;
+  min-height: 520px;
+  display: grid;
+  place-items: center;
+}
+.hero-contours {
+  position: absolute;
+  inset: -8%;
+  color: var(--ciano-e);
+  opacity: 0.28;
+  pointer-events: none;
+}
+.hero-symbol {
+  position: relative;
+  width: min(340px, 70%);
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.35));
+}
+.hero-symbol path { animation: layer-in 0.7s var(--ease) both; }
+.hero-symbol path:nth-child(1) { animation-delay: 0.05s; }
+.hero-symbol path:nth-child(2) { animation-delay: 0.12s; }
+.hero-symbol path:nth-child(3) { animation-delay: 0.18s; }
+.hero-symbol path:nth-child(4) { animation-delay: 0.24s; }
+.hero-symbol path:nth-child(5) { animation-delay: 0.30s; }
+.hero-symbol path:nth-child(6) { animation-delay: 0.36s; }
+.hero-symbol path:nth-child(7) { animation-delay: 0.42s; }
+.hero-symbol path:nth-child(8) { animation-delay: 0.48s; }
+.hero-symbol path:nth-child(9) { animation-delay: 0.54s; }
+@keyframes layer-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+.hero-symbol path { transform-box: fill-box; transform-origin: center; }
+
+/* Sections */
+section { padding: 96px 0; }
+.band-dark { background: var(--petroleo); color: var(--gelo); }
+.band-night { background: var(--noite); color: var(--gelo); }
+.band-light { background: var(--nevoa); }
+.band-white { background: #fff; }
+
+/* Services */
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.svc {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 32px 28px 28px;
+  border: 1px solid var(--linha);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s;
+}
+.svc:hover { transform: translateY(-4px); box-shadow: 0 22px 50px rgba(10, 30, 37, 0.14); }
+.svc::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; right: 0;
+  height: 4px;
+  background: var(--accent, var(--laranja));
+}
+.svc-3d { --accent: var(--laranja); }
+.svc-redes { --accent: var(--verde); }
+.svc-sistemas { --accent: var(--violeta); }
+.svc-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: grid; place-items: center;
+  background: color-mix(in srgb, var(--accent) 12%, var(--nevoa));
+  color: var(--accent);
+}
+.svc-icon svg { width: 26px; height: 26px; }
+.svc h3 { color: var(--petroleo); }
+.svc p { color: var(--cinza); }
+.svc ul { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+.svc li {
+  position: relative;
+  padding-left: 16px;
+  color: var(--tinta);
+  font-size: 0.95rem;
+}
+.svc li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.65em;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent, var(--ciano)) 16%, #fff);
+  color: var(--accent, var(--ciano));
+  width: fit-content;
+}
+
+/* How it works */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.steps::before {
+  content: "";
+  position: absolute;
+  top: 27px;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ciano) 10%, var(--ciano) 90%, transparent);
+  opacity: 0.35;
+}
+.step { position: relative; }
+.step-num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  background: color-mix(in srgb, var(--noite) 55%, var(--petroleo));
+  border: 1px solid color-mix(in srgb, var(--ciano-e) 40%, transparent);
+  color: var(--ciano-e);
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+.step h3 { color: var(--gelo); margin-bottom: 8px; }
+.step p { color: var(--muted); font-size: 0.98rem; }
+
+/* Portfolio */
+.folio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.folio {
+  background: var(--noite);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--night-line);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s var(--ease);
+}
+.folio:hover { transform: translateY(-4px); }
+.folio-art {
+  aspect-ratio: 4/3;
+  position: relative;
+  background: radial-gradient(80% 80% at 50% 40%, #0E2A33 0%, var(--noite) 70%);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.folio-art svg { width: 78%; height: 78%; }
+.folio-art .ex {
+  position: absolute;
+  top: 14px; left: 14px;
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--noite);
+  background: var(--ciano-e);
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+.folio-body { padding: 18px 20px 22px; }
+.folio-body h3 { color: var(--gelo); font-size: 1.15rem; margin-bottom: 4px; }
+.folio-body p { color: var(--muted-2); font-size: 0.92rem; }
+.note {
+  margin-top: 28px;
+  color: var(--cinza);
+  font-size: 0.92rem;
+}
+
+/* Materials */
+.mat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.mat {
+  background: var(--card);
+  border: 1px solid var(--linha);
+  border-radius: 18px;
+  padding: 28px;
+}
+.mat .swatch {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+.mat h3 { color: var(--petroleo); margin-bottom: 8px; display: flex; align-items: baseline; gap: 10px; }
+.mat h3 span {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 0;
+  color: var(--cinza);
+}
+.mat p { color: var(--cinza); }
+.mat-foot { margin-top: 28px; color: var(--cinza); font-size: 0.95rem; max-width: 40rem; }
+
+/* Why */
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.why {
+  background: color-mix(in srgb, #fff 4%, transparent);
+  border: 1px solid var(--night-line);
+  border-radius: 18px;
+  padding: 28px;
+}
+.why-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: grid; place-items: center;
+  background: color-mix(in srgb, var(--ciano-e) 12%, transparent);
+  color: var(--ciano-e);
+  margin-bottom: 16px;
+}
+.why-icon svg { width: 24px; height: 24px; }
+.why h3 { color: var(--gelo); margin-bottom: 8px; }
+.why p { color: var(--muted); }
+
+/* FAQ */
+.faq-list { display: flex; flex-direction: column; gap: 10px; max-width: 760px; }
+.faq {
+  background: #fff;
+  border: 1px solid var(--linha);
+  border-radius: 14px;
+  padding: 0 22px;
+}
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--petroleo);
+  padding: 18px 36px 18px 0;
+  position: relative;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "";
+  position: absolute;
+  right: 0; top: 50%;
+  width: 12px; height: 12px;
+  border-right: 2px solid var(--ciano);
+  border-bottom: 2px solid var(--ciano);
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.2s var(--ease);
+}
+.faq[open] summary::after { transform: translateY(-20%) rotate(225deg); }
+.faq .faq-a {
+  color: var(--cinza);
+  padding: 0 8px 20px 0;
+  max-width: 62ch;
+}
+
+/* Form */
+.orc-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 48px;
+  align-items: start;
+}
+.form-card {
+  background: #fff;
+  color: var(--tinta);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+}
+.form-grid { display: grid; gap: 16px; }
+label.fld {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.88rem;
+  color: var(--petroleo);
+}
+input[type="text"], select, textarea {
+  appearance: none;
+  background: var(--nevoa);
+  border: 1px solid var(--linha);
+  border-radius: 12px;
+  padding: 12px 14px;
+  color: var(--tinta);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+input:hover, select:hover, textarea:hover { border-color: color-mix(in srgb, var(--ciano) 40%, var(--linha)); }
+input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: none;
+  border-color: var(--ciano);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ciano) 22%, transparent);
+}
+textarea { min-height: 140px; resize: vertical; }
+select {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%230B3C49' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+.check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--cinza);
+  font-weight: 400;
+  font-family: var(--font-body);
+}
+.check input { margin-top: 3px; accent-color: var(--ciano); width: 16px; height: 16px; }
+.form-card .btn { width: 100%; margin-top: 4px; }
+.form-note { margin-top: 12px; font-size: 0.85rem; color: var(--cinza); text-align: center; }
+.form-error {
+  display: none;
+  background: #FDECEA;
+  color: #8A1C12;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.88rem;
+}
+.form-error.show { display: block; }
+.orc-copy .lead { margin-bottom: 28px; }
+.orc-points { display: flex; flex-direction: column; gap: 16px; }
+.orc-points li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  color: var(--muted);
+}
+.orc-points svg { width: 22px; height: 22px; flex: 0 0 22px; color: var(--ciano-e); margin-top: 1px; }
+
+/* Footer */
+.footer {
+  background: var(--noite);
+  color: var(--muted);
+  padding: 56px 0 28px;
+  border-top: 1px solid var(--night-line);
+}
+.foot-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 36px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--night-line);
+}
+.footer .logo-h { height: 44px; margin-bottom: 16px; }
+.footer p { max-width: 28rem; }
+.foot-col h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ciano-e);
+  margin-bottom: 16px;
+}
+.foot-col a, .foot-col p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.foot-col a:hover { color: var(--gelo); }
+.foot-col svg { width: 18px; height: 18px; color: var(--ciano-e); flex: 0 0 18px; }
+.foot-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 22px;
+  font-size: 0.85rem;
+  color: var(--muted-2);
+}
+
+/* Mobile */
+@media (max-width: 960px) {
+  .svc-grid, .folio-grid, .mat-grid { grid-template-columns: 1fr 1fr; }
+  .steps { grid-template-columns: 1fr 1fr; gap: 28px 24px; }
+  .steps::before { display: none; }
+  .orc-grid, .why-grid, .foot-grid, .hero-grid { grid-template-columns: 1fr; }
+  .hero { min-height: 0; padding: 48px 0 64px; }
+  .hero-visual { min-height: 280px; }
+  .hero-symbol { width: min(200px, 52%); }
+}
+@media (max-width: 720px) {
+  :root { --nav-h: 64px; }
+  .wrap { width: min(var(--wrap), calc(100% - 32px)); }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: var(--nav-h);
+    left: 0; right: 0;
+    background: var(--noite);
+    border-bottom: 1px solid var(--night-line);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px 20px 24px;
+    gap: 4px;
+  }
+  .nav.is-open .nav-links { display: flex; }
+  .nav-links a { padding: 12px 4px; color: var(--gelo); }
+  .nav-cta { margin: 8px 0 0; width: 100%; }
+  .nav-toggle { display: flex; }
+  .logo-h { height: 34px; }
+  section { padding: 72px 0; }
+  .svc-grid, .folio-grid, .mat-grid, .steps { grid-template-columns: 1fr; }
+  .form-card { padding: 22px 18px; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .btn { width: 100%; }
+  .nav-cta.btn { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="logo-link" href="#inicio" aria-label="Prumo 3D Lab, ir ao início">
+        <svg class="logo-h" viewBox="-83.31 -36.36 763.76 345.12" role="img" aria-label="Prumo 3D Lab"><path fill="#22D3E0" d="M0 -7.6C4.2 -7.6 7.6 -4.2 7.6 0C7.6 2.73 6.16 5.12 4 6.46V38.01H-4V6.46C-6.16 5.12 -7.6 2.73 -7.6 0C-7.6 -4.2 -4.2 -7.6 0 -7.6Z"/><path fill="#E8F6F8" d="M-17 46H17V66H-17Z"/><path fill="#E8F6F8" d="M19.79 74 33.71 94H-33.71L-19.79 74Z"/><path fill="#E8F6F8" d="M39.29 102 53.21 122H-53.21L-39.29 102Z"/><path fill="#E8F6F8" d="M54.55 130 47.27 150H-47.27L-54.55 130Z"/><path fill="#E8F6F8" d="M44.36 158 37.09 178H-37.09L-44.36 158Z"/><path fill="#E8F6F8" d="M34.18 186 26.91 206H-26.91L-34.18 186Z"/><path fill="#E8F6F8" d="M24 214 16.73 234H-16.73L-24 214Z"/><path fill="#FF6B2C" d="M13.82 242 0 280 -13.82 242Z"/><path fill="#E8F6F8" d="M111.5 207.88V79.11H134.44V90.21H137.77Q140.91 84.85 147.57 80.69Q154.23 76.53 166.63 76.53Q177.73 76.53 187.16 81.98Q196.6 87.44 202.33 97.99Q208.07 108.53 208.07 123.51V126.47Q208.07 141.46 202.33 152Q196.6 162.55 187.16 168.01Q177.73 173.46 166.63 173.46Q158.3 173.46 152.66 171.52Q147.02 169.58 143.59 166.53Q140.17 163.48 138.14 160.33H134.81V207.88ZM603.6 173.46Q589.91 173.46 578.99 167.92Q568.08 162.37 561.79 151.82Q555.5 141.27 555.5 126.47V123.51Q555.5 108.71 561.79 98.17Q568.08 87.62 578.99 82.08Q589.91 76.53 603.6 76.53Q617.29 76.53 628.2 82.08Q639.12 87.62 645.41 98.17Q651.7 108.71 651.7 123.51V126.47Q651.7 141.27 645.41 151.82Q639.12 162.37 628.2 167.92Q617.29 173.46 603.6 173.46ZM405.65 170.88V79.11H428.59V89.11H431.92Q434.32 84.48 439.87 81.06Q445.42 77.64 454.49 77.64Q464.29 77.64 470.21 81.43Q476.13 85.22 479.28 91.32H482.61Q485.75 85.4 491.49 81.52Q497.22 77.64 507.77 77.64Q516.28 77.64 523.21 81.24Q530.15 84.85 534.31 92.16Q538.48 99.46 538.48 110.56V170.88H515.17V112.23Q515.17 104.64 511.28 100.85Q507.4 97.06 500.37 97.06Q492.41 97.06 488.06 102.15Q483.72 107.24 483.72 116.67V170.88H460.41V112.23Q460.41 104.64 456.52 100.85Q452.64 97.06 445.61 97.06Q437.65 97.06 433.3 102.15Q428.96 107.24 428.96 116.67V170.88ZM330.35 172.35Q319.62 172.35 311.57 167.45Q303.53 162.55 299.09 153.86Q294.65 145.16 294.65 133.88V79.11H317.96V132.02Q317.96 142.38 323.04 147.56Q328.13 152.74 337.57 152.74Q348.3 152.74 354.22 145.62Q360.14 138.5 360.14 125.74V79.11H383.45V170.88H360.51V158.85H357.18Q354.96 163.48 348.85 167.92Q342.75 172.35 330.35 172.35ZM225.83 170.88V79.11H248.77V89.47H252.1Q254.13 83.93 258.85 81.34Q263.57 78.75 269.86 78.75H280.96V99.46H269.49Q260.61 99.46 254.87 104.18Q249.14 108.9 249.14 118.71V170.88ZM159.6 153.12Q170.51 153.12 177.63 146.18Q184.76 139.24 184.76 125.92V124.07Q184.76 110.75 177.54 103.81Q170.33 96.88 159.6 96.88Q148.87 96.88 141.65 103.81Q134.44 110.75 134.44 124.07V125.92Q134.44 139.24 141.65 146.18Q148.87 153.12 159.6 153.12ZM603.6 152.74Q614.33 152.74 621.36 145.81Q628.39 138.87 628.39 125.92V124.07Q628.39 111.12 621.45 104.18Q614.51 97.25 603.6 97.25Q592.87 97.25 585.84 104.18Q578.81 111.12 578.81 124.07V125.92Q578.81 138.87 585.84 145.81Q592.87 152.74 603.6 152.74Z"/><path fill="#22D3E0" d="M388.74 207.88V204.32H392.22V185.53H388.74V181.98H401.87Q404.2 181.98 405.94 182.77Q407.68 183.57 408.66 185.03Q409.64 186.49 409.64 188.49V188.86Q409.64 190.63 408.98 191.78Q408.31 192.93 407.37 193.56Q406.42 194.18 405.57 194.44V195.04Q406.42 195.26 407.4 195.91Q408.39 196.55 409.07 197.7Q409.75 198.85 409.75 200.7V201.07Q409.75 203.21 408.76 204.73Q407.76 206.25 406 207.06Q404.24 207.88 401.95 207.88ZM263.83 207.88V204.32H267.3V185.53H263.83V181.98H274.19Q279.37 181.98 282.12 184.6Q284.88 187.23 284.88 192.52V197.37Q284.88 202.66 282.12 205.27Q279.37 207.88 274.19 207.88ZM352.55 207.88 359.95 181.98H366.98L374.35 207.88H370.24L368.54 201.77H358.4L356.7 207.88ZM239.07 208.39Q236.22 208.39 234 207.36Q231.78 206.32 230.54 204.36Q229.31 202.4 229.31 199.7V199.03H233.19V199.62Q233.19 202.07 234.8 203.49Q236.41 204.91 239.07 204.91Q241.74 204.91 243.22 203.58Q244.7 202.25 244.7 200.22V199.88Q244.7 198.44 243.99 197.55Q243.29 196.66 242.11 196.24Q240.92 195.81 239.44 195.81H234.74V191.34L243.85 185.97V185.45H229.93V181.98H248.06V187.23L239.37 192.41V192.93H240.96Q242.92 192.93 244.66 193.67Q246.4 194.41 247.49 195.92Q248.58 197.44 248.58 199.77V200.22Q248.58 202.69 247.4 204.53Q246.21 206.36 244.07 207.38Q241.92 208.39 239.07 208.39ZM271.34 204.25H274.22Q277.59 204.25 279.22 202.55Q280.85 200.85 280.85 197.48V192.37Q280.85 188.97 279.22 187.3Q277.59 185.64 274.22 185.64H271.34ZM322.51 207.88V181.98H326.5V204.25H338.97V207.88ZM396.25 204.25H401.47Q403.46 204.25 404.61 203.29Q405.76 202.32 405.76 200.62V200.29Q405.76 198.59 404.63 197.63Q403.5 196.66 401.47 196.66H396.25ZM396.25 193H401.47Q403.35 193 404.5 192.06Q405.65 191.11 405.65 189.49V189.12Q405.65 187.49 404.52 186.54Q403.39 185.6 401.47 185.6H396.25ZM359.4 198.07H367.54L363.76 184.45H363.17Z"/></svg>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="nav-links">
+        <a href="#servicos">Serviços</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#faq">FAQ</a>
+        <a href="#orcamento">Orçamento</a>
+        <a class="btn btn-primary nav-cta" data-whatsapp data-message="Olá, Prumo 3D Lab! Quero um orçamento." href="#orcamento">Peça um orçamento</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="inicio">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="kicker on-dark">Impressão 3D · Manaus</p>
+          <h1>Sua ideia,<br>camada por camada.</h1>
+          <p class="lead on-dark">Laboratório técnico em Manaus. A gente modela e imprime peças sob medida — e também cuida de redes, servidores e computadores.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" data-whatsapp data-message="Olá, Prumo 3D Lab! Quero um orçamento." href="#orcamento">
+              <svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19.5l.7-3.2A7.8 7.8 0 1 1 12 19.8a7.7 7.7 0 0 1-3.5-.8z"/><path d="M9.2 9.6c.2-.5.3-.5.6-.5h.5c.2 0 .3.1.4.4l.5 1.3c.1.2 0 .4-.1.5l-.4.5c-.1.1-.1.3 0 .4.3.5.8 1 1.4 1.4.1.1.3.1.4 0l.5-.4c.2-.2.4-.2.5-.1l1.3.5c.3.1.4.2.4.4v.5c0 .3 0 .4-.5.6A5.2 5.2 0 0 1 9.6 11c0-.3.1-.4.2-.6z"/></g></svg>
+              Peça um orçamento
+            </a>
+            <a class="btn btn-ghost" href="#como-funciona">Como funciona</a>
+          </div>
+          <p class="hero-meta"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9.5" r="2.5"/></g></svg> Manaus/AM</p>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <svg class="hero-contours" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><g fill="none" stroke="currentColor" stroke-width="0.22" stroke-opacity="1"><path d="M52.5,50.0L52.6,50.2L52.7,50.4L52.8,50.7L53.0,51.0L53.1,51.3L53.1,51.6L53.0,52.0L52.9,52.3L52.6,52.6L52.3,52.8L51.9,53.1L51.5,53.3L51.0,53.5L50.5,53.7L50.0,53.9L49.4,54.0L48.8,54.1L48.1,54.1L47.5,54.0L46.9,53.9L46.3,53.7L45.7,53.4L45.2,53.1L44.7,52.8L44.2,52.4L43.7,52.0L43.3,51.6L43.0,51.1L42.9,50.5L42.9,50.0L43.0,49.5L43.4,49.0L43.9,48.6L44.5,48.2L45.2,48.0L45.9,47.8L46.5,47.7L47.1,47.7L47.7,47.7L48.2,47.7L48.6,47.7L49.0,47.8L49.4,47.9L49.7,48.1L50.0,48.2L50.2,48.3L50.4,48.5L50.6,48.6L50.8,48.7L51.0,48.7L51.3,48.7L51.5,48.8L51.8,48.9L52.0,49.0L52.2,49.1L52.3,49.3L52.3,49.5L52.4,49.6L52.4,49.8L52.5,50.0Z"/><path d="M56.9,50.0L56.9,50.5L57.0,51.1L57.1,51.7L57.1,52.3L57.1,52.9L56.9,53.6L56.5,54.2L55.9,54.7L55.2,55.2L54.4,55.5L53.6,55.8L52.7,56.1L51.9,56.3L50.9,56.5L50.0,56.7L49.0,56.8L48.0,56.9L46.9,56.9L45.8,56.7L44.8,56.5L43.9,56.1L43.0,55.6L42.1,55.1L41.3,54.6L40.4,54.0L39.6,53.3L38.9,52.6L38.2,51.8L37.8,50.9L37.7,50.0L37.9,49.1L38.4,48.2L39.2,47.5L40.2,46.8L41.3,46.4L42.4,46.0L43.4,45.7L44.4,45.5L45.3,45.4L46.2,45.3L47.0,45.2L47.8,45.1L48.6,45.1L49.3,45.2L50.0,45.4L50.6,45.6L51.3,45.7L51.9,45.9L52.5,46.0L53.2,46.1L53.9,46.2L54.6,46.3L55.3,46.6L55.9,46.9L56.4,47.4L56.7,47.9L56.9,48.4L56.9,48.9L56.9,49.5L56.9,50.0Z"/><path d="M61.3,50.0L61.3,50.9L61.3,51.7L61.3,52.6L61.2,53.6L61.0,54.6L60.6,55.5L59.9,56.4L59.0,57.2L57.8,57.8L56.6,58.2L55.3,58.6L54.0,58.8L52.7,59.1L51.4,59.3L50.0,59.5L48.6,59.7L47.1,59.8L45.6,59.7L44.2,59.4L42.8,59.0L41.4,58.5L40.2,57.8L39.0,57.1L37.8,56.4L36.7,55.5L35.5,54.7L34.4,53.7L33.5,52.5L32.8,51.3L32.5,50.0L32.8,48.7L33.4,47.5L34.5,46.4L35.8,45.5L37.3,44.7L38.9,44.2L40.3,43.7L41.7,43.4L43.0,43.1L44.2,42.8L45.4,42.6L46.6,42.4L47.7,42.4L48.9,42.4L50.0,42.6L51.1,42.8L52.1,43.0L53.1,43.1L54.1,43.3L55.3,43.4L56.4,43.6L57.6,43.9L58.8,44.3L59.8,44.9L60.6,45.6L61.1,46.4L61.4,47.3L61.5,48.2L61.4,49.1L61.3,50.0Z"/><path d="M65.8,50.0L65.7,51.2L65.6,52.4L65.6,53.6L65.4,54.9L65.0,56.2L64.3,57.5L63.3,58.6L62.0,59.6L60.4,60.3L58.7,60.9L57.0,61.3L55.2,61.6L53.5,61.9L51.8,62.1L50.0,62.4L48.2,62.5L46.3,62.6L44.4,62.5L42.5,62.2L40.7,61.6L39.0,60.9L37.4,60.1L35.9,59.1L34.4,58.2L32.9,57.1L31.4,56.0L29.9,54.7L28.7,53.3L27.8,51.7L27.4,50.0L27.6,48.3L28.5,46.7L29.8,45.3L31.5,44.1L33.4,43.1L35.4,42.3L37.2,41.7L39.0,41.2L40.6,40.7L42.2,40.3L43.8,39.9L45.3,39.7L46.9,39.6L48.5,39.6L50.0,39.7L51.5,40.0L52.9,40.2L54.3,40.4L55.8,40.6L57.4,40.8L59.0,41.1L60.7,41.5L62.3,42.1L63.7,42.9L64.8,43.9L65.5,45.0L65.9,46.3L66.0,47.5L66.0,48.8L65.8,50.0Z"/><path d="M70.3,50.0L70.1,51.5L70.0,53.1L69.8,54.6L69.5,56.3L69.0,57.9L68.1,59.4L66.7,60.8L65.0,62.0L63.0,62.9L60.8,63.5L58.6,64.0L56.5,64.3L54.3,64.6L52.2,64.9L50.0,65.2L47.8,65.4L45.4,65.5L43.1,65.3L40.8,64.9L38.6,64.2L36.5,63.3L34.6,62.3L32.8,61.2L31.0,60.0L29.1,58.7L27.2,57.3L25.5,55.7L23.9,54.0L22.8,52.1L22.3,50.0L22.6,47.9L23.5,45.9L25.1,44.2L27.2,42.7L29.5,41.5L31.9,40.5L34.1,39.7L36.3,39.0L38.3,38.4L40.2,37.8L42.2,37.3L44.1,36.9L46.1,36.7L48.1,36.7L50.0,36.9L51.9,37.2L53.7,37.5L55.5,37.7L57.4,38.0L59.4,38.2L61.5,38.6L63.7,39.1L65.7,39.8L67.5,40.8L69.0,42.1L69.9,43.6L70.4,45.2L70.6,46.8L70.5,48.4L70.3,50.0Z"/><path d="M74.8,50.0L74.6,51.9L74.4,53.7L74.1,55.6L73.7,57.6L73.0,59.6L71.8,61.4L70.1,63.0L68.0,64.4L65.6,65.4L63.0,66.2L60.3,66.7L57.7,67.0L55.1,67.4L52.6,67.7L50.0,68.0L47.3,68.2L44.6,68.3L41.8,68.1L39.1,67.6L36.5,66.8L34.1,65.8L31.8,64.5L29.6,63.2L27.5,61.8L25.3,60.3L23.1,58.6L21.0,56.8L19.2,54.7L17.8,52.4L17.2,50.0L17.5,47.5L18.6,45.2L20.5,43.1L22.9,41.3L25.6,39.9L28.4,38.7L31.0,37.7L33.5,36.8L35.9,36.0L38.2,35.3L40.5,34.7L42.9,34.2L45.3,33.9L47.6,33.9L50.0,34.1L52.3,34.4L54.5,34.7L56.8,35.0L59.1,35.3L61.5,35.6L64.1,36.0L66.7,36.7L69.2,37.6L71.4,38.8L73.1,40.4L74.3,42.2L75.0,44.2L75.2,46.1L75.1,48.1L74.8,50.0Z"/><path d="M79.4,50.0L79.1,52.2L78.8,54.4L78.5,56.7L77.9,58.9L77.0,61.2L75.5,63.4L73.5,65.3L71.0,66.8L68.1,68.0L65.1,68.8L62.0,69.3L58.9,69.7L55.9,70.1L53.0,70.4L50.0,70.8L46.9,71.1L43.8,71.2L40.5,70.9L37.4,70.4L34.4,69.5L31.6,68.2L29.0,66.8L26.5,65.2L24.0,63.6L21.5,61.8L19.0,59.9L16.5,57.8L14.4,55.4L12.9,52.8L12.2,50.0L12.5,47.2L13.7,44.4L15.9,42.0L18.6,39.9L21.7,38.2L24.9,36.8L27.9,35.7L30.8,34.6L33.5,33.7L36.2,32.8L38.9,32.0L41.6,31.4L44.4,31.1L47.2,31.0L50.0,31.2L52.7,31.6L55.3,32.0L58.0,32.4L60.7,32.7L63.6,33.1L66.6,33.6L69.7,34.3L72.6,35.3L75.2,36.8L77.3,38.6L78.7,40.8L79.5,43.1L79.8,45.4L79.7,47.8L79.4,50.0Z"/><path d="M83.9,50.0L83.6,52.5L83.2,55.1L82.8,57.7L82.1,60.3L81.0,62.9L79.3,65.3L76.9,67.5L74.0,69.2L70.7,70.5L67.2,71.4L63.6,72.0L60.1,72.4L56.7,72.8L53.4,73.2L50.0,73.6L46.5,73.9L42.9,74.0L39.3,73.8L35.7,73.1L32.3,72.1L29.1,70.7L26.2,69.1L23.3,67.3L20.5,65.4L17.7,63.4L14.8,61.3L12.1,58.9L9.7,56.2L8.0,53.2L7.2,50.0L7.4,46.8L8.9,43.7L11.2,40.9L14.3,38.6L17.8,36.6L21.4,35.0L24.8,33.7L28.0,32.4L31.1,31.3L34.2,30.2L37.2,29.3L40.4,28.6L43.6,28.2L46.8,28.1L50.0,28.4L53.1,28.8L56.1,29.2L59.2,29.7L62.3,30.1L65.6,30.5L69.1,31.1L72.6,31.9L76.0,33.1L79.1,34.8L81.5,36.9L83.2,39.4L84.1,42.0L84.4,44.7L84.3,47.4L83.9,50.0Z"/><path d="M88.5,50.0L88.1,52.9L87.7,55.8L87.1,58.7L86.3,61.6L85.0,64.6L83.0,67.3L80.3,69.7L77.0,71.6L73.2,73.0L69.2,74.0L65.2,74.6L61.3,75.1L57.5,75.5L53.8,75.9L50.0,76.4L46.1,76.8L42.1,76.9L38.0,76.6L34.0,75.9L30.2,74.7L26.6,73.2L23.3,71.3L20.2,69.3L17.0,67.2L13.9,65.0L10.7,62.6L7.7,59.9L5.0,56.9L3.0,53.6L2.1,50.0L2.5,46.4L4.0,43.0L6.7,39.9L10.1,37.2L13.9,35.0L17.9,33.2L21.7,31.6L25.3,30.2L28.7,28.9L32.1,27.7L35.5,26.6L39.1,25.8L42.7,25.3L46.4,25.3L50.0,25.5L53.5,25.9L56.9,26.5L60.4,27.0L63.9,27.5L67.7,28.0L71.6,28.6L75.6,29.5L79.5,30.9L82.9,32.8L85.6,35.2L87.6,38.0L88.6,41.0L89.0,44.0L88.9,47.1L88.5,50.0Z"/><path d="M93.1,50.0L92.7,53.2L92.2,56.5L91.5,59.7L90.6,63.0L89.0,66.2L86.8,69.2L83.7,71.9L80.0,74.0L75.8,75.5L71.3,76.6L66.8,77.2L62.5,77.7L58.3,78.2L54.2,78.7L50.0,79.2L45.7,79.6L41.2,79.8L36.7,79.5L32.3,78.7L28.0,77.4L24.1,75.7L20.4,73.6L17.0,71.4L13.5,69.1L10.1,66.6L6.6,63.9L3.2,60.9L0.3,57.6L-1.8,53.9L-2.9,50.0L-2.5,46.0L-0.8,42.2L2.1,38.8L5.8,35.8L10.0,33.4L14.4,31.4L18.6,29.6L22.5,28.0L26.3,26.5L30.1,25.1L33.9,23.9L37.8,23.0L41.9,22.5L46.0,22.4L50.0,22.6L53.9,23.1L57.7,23.8L61.6,24.4L65.5,24.9L69.7,25.4L74.1,26.1L78.5,27.2L82.9,28.7L86.7,30.8L89.8,33.5L92.0,36.6L93.2,39.9L93.6,43.3L93.5,46.7L93.1,50.0Z"/><path d="M97.8,50.0L97.2,53.6L96.7,57.1L95.9,60.7L94.8,64.4L93.1,67.9L90.5,71.2L87.1,74.1L83.0,76.4L78.3,78.0L73.4,79.1L68.5,79.8L63.7,80.4L59.1,80.9L54.6,81.4L50.0,82.0L45.3,82.4L40.4,82.6L35.4,82.3L30.5,81.5L25.9,80.1L21.6,78.2L17.5,75.9L13.7,73.5L10.0,70.9L6.2,68.2L2.4,65.2L-1.2,62.0L-4.4,58.3L-6.7,54.3L-7.8,50.0L-7.5,45.7L-5.6,41.5L-2.5,37.7L1.6,34.5L6.2,31.8L10.9,29.5L15.4,27.6L19.7,25.8L23.9,24.1L28.0,22.6L32.2,21.2L36.5,20.2L41.0,19.6L45.5,19.4L50.0,19.7L54.3,20.3L58.6,21.0L62.8,21.7L67.1,22.3L71.7,22.9L76.5,23.7L81.5,24.8L86.2,26.5L90.5,28.8L93.9,31.7L96.4,35.1L97.8,38.8L98.3,42.6L98.2,46.4L97.8,50.0Z"/></g></svg>
+          <svg class="hero-symbol" viewBox="-172.56 -36.36 345.12 345.12"><path fill="#22D3E0" d="M0 -7.6C4.2 -7.6 7.6 -4.2 7.6 0C7.6 2.73 6.16 5.12 4 6.46V38.01H-4V6.46C-6.16 5.12 -7.6 2.73 -7.6 0C-7.6 -4.2 -4.2 -7.6 0 -7.6Z"/>
+<path fill="#E8F6F8" d="M-17 46H17V66H-17Z"/>
+<path fill="#E8F6F8" d="M19.79 74 33.71 94H-33.71L-19.79 74Z"/>
+<path fill="#E8F6F8" d="M39.29 102 53.21 122H-53.21L-39.29 102Z"/>
+<path fill="#E8F6F8" d="M54.55 130 47.27 150H-47.27L-54.55 130Z"/>
+<path fill="#E8F6F8" d="M44.36 158 37.09 178H-37.09L-44.36 158Z"/>
+<path fill="#E8F6F8" d="M34.18 186 26.91 206H-26.91L-34.18 186Z"/>
+<path fill="#E8F6F8" d="M24 214 16.73 234H-16.73L-24 214Z"/>
+<path fill="#FF6B2C" d="M13.82 242 0 280 -13.82 242Z"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="band-light" id="servicos">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker">O que a gente faz</p>
+          <h2>Três frentes, um laboratório.</h2>
+          <p class="lead">Impressão 3D sob encomenda hoje. Redes e manutenção no mesmo lugar. Sistemas, em breve.</p>
+        </div>
+        <div class="svc-grid">
+          <article class="svc svc-3d">
+            <div class="svc-icon"><svg class="ico" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 8h18M12 8v5M9.5 13h5l-2.5 3z"/><path d="M7 19h10"/></g></svg></div>
+            <h3>prumo 3D Lab</h3>
+            <p>Impressão 3D sob encomenda na Bambu Lab A1 Mini. Do arquivo — ou da ideia — à peça na sua mão, no prumo.</p>
+            <ul>
+              <li>Peças personalizadas e modelagem</li>
+              <li>Chaveiros, placas e brindes</li>
+              <li>Suportes e reposição de peças</li>
+              <li>Protótipos para testar forma e encaixe</li>
+            </ul>
+          </article>
+          <article class="svc svc-redes">
+            <div class="svc-icon"><svg class="ico" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v5M12 12.5L6.5 17M12 12.5l5.5 4.5"/></g></svg></div>
+            <h3>prumo Redes</h3>
+            <p>Rede caiu? A gente resolve e explica o que houve. Montagem, configuração e manutenção, em linguagem simples.</p>
+            <ul>
+              <li>Redes de computadores</li>
+              <li>Servidores</li>
+              <li>Manutenção de computadores</li>
+            </ul>
+          </article>
+          <article class="svc svc-sistemas">
+            <div class="svc-icon"><svg class="ico" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 7L3.5 12l5 5M15.5 7l5 5-5 5M13.5 4.5l-3 15"/></g></svg></div>
+            <span class="badge">Em breve</span>
+            <h3>prumo Sistemas</h3>
+            <p>Desenvolvimento de sistemas está a caminho. Se você já tem um projeto em mente, deixa um recado no orçamento.</p>
+            <ul>
+              <li>Sistemas sob medida</li>
+              <li>Acompanhamento pela mesma equipe</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band-dark" id="como-funciona">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker on-dark">Como funciona</p>
+          <h2 class="on-dark">Do pedido à peça, em quatro etapas.</h2>
+        </div>
+        <ol class="steps">
+          <li class="step">
+            <div class="step-num">01</div>
+            <h3>Envie a ideia</h3>
+            <p>Arquivo 3D, foto, desenho ou uma descrição pelo WhatsApp. Quanto mais detalhe, mais preciso o orçamento.</p>
+          </li>
+          <li class="step">
+            <div class="step-num">02</div>
+            <h3>Modelamos</h3>
+            <p>Se você ainda não tem o arquivo, a gente modela e te mostra antes de imprimir.</p>
+          </li>
+          <li class="step">
+            <div class="step-num">03</div>
+            <h3>Imprimimos</h3>
+            <p>Na Bambu Lab A1 Mini, com o material combinado no orçamento — camada por camada.</p>
+          </li>
+          <li class="step">
+            <div class="step-num">04</div>
+            <h3>Entregamos</h3>
+            <p>Combinamos a retirada ou a entrega em Manaus. O prazo entra no orçamento, sem surpresa.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="band-light" id="portfolio">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker">Portfólio</p>
+          <h2>Exemplos do que a gente imprime.</h2>
+          <p class="lead">Ilustrações do tipo de peça que sai da impressora. Fotos dos trabalhos reais entram aqui conforme forem ficando prontas.</p>
+        </div>
+        <div class="folio-grid">
+          
+    <article class="folio">
+      <div class="folio-art">
+        <span class="ex">Exemplo</span>
+        
+<svg viewBox="0 0 200 150" aria-hidden="true">
+  <circle cx="100" cy="28" r="10" fill="none" stroke="#9AA7AC" stroke-width="3"/>
+  <circle cx="100" cy="28" r="4" fill="none" stroke="#9AA7AC" stroke-width="2"/>
+  <g transform="translate(100,42) scale(0.38)">
+    <path fill="#22D3E0" d="M0 -7.6C4.2 -7.6 7.6 -4.2 7.6 0C7.6 2.73 6.16 5.12 4 6.46V38.01H-4V6.46C-6.16 5.12 -7.6 2.73 -7.6 0C-7.6 -4.2 -4.2 -7.6 0 -7.6Z"/>
+<path fill="#E8F6F8" d="M-17 46H17V66H-17Z"/>
+<path fill="#E8F6F8" d="M19.79 74 33.71 94H-33.71L-19.79 74Z"/>
+<path fill="#E8F6F8" d="M39.29 102 53.21 122H-53.21L-39.29 102Z"/>
+<path fill="#E8F6F8" d="M54.55 130 47.27 150H-47.27L-54.55 130Z"/>
+<path fill="#E8F6F8" d="M44.36 158 37.09 178H-37.09L-44.36 158Z"/>
+<path fill="#E8F6F8" d="M34.18 186 26.91 206H-26.91L-34.18 186Z"/>
+<path fill="#E8F6F8" d="M24 214 16.73 234H-16.73L-24 214Z"/>
+<path fill="#FF6B2C" d="M13.82 242 0 280 -13.82 242Z"/>
+  </g>
+</svg>
+      </div>
+      <div class="folio-body">
+        <h3>Chaveiros</h3>
+        <p>Personalizados, com o símbolo da Prumo ou o desenho que você trouxer.</p>
+      </div>
+    </article>
+    <article class="folio">
+      <div class="folio-art">
+        <span class="ex">Exemplo</span>
+        
+<svg viewBox="0 0 200 150" aria-hidden="true">
+  <rect x="28" y="38" width="144" height="78" rx="10" fill="#0B3C49" stroke="#22D3E0" stroke-width="2"/>
+  <rect x="36" y="46" width="128" height="62" rx="6" fill="#0A1E25"/>
+  <text x="100" y="72" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" fill="#E8F6F8" letter-spacing="2">SOB MEDIDA</text>
+  <text x="100" y="92" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="8" fill="#22D3E0" letter-spacing="3">PLACA · 20 × 8 cm</text>
+  <rect x="28" y="38" width="8" height="78" rx="2" fill="#FF6B2C"/>
+</svg>
+      </div>
+      <div class="folio-body">
+        <h3>Placas</h3>
+        <p>Identificação, sinalização e placas decorativas sob medida.</p>
+      </div>
+    </article>
+    <article class="folio">
+      <div class="folio-art">
+        <span class="ex">Exemplo</span>
+        
+<svg viewBox="0 0 200 150" aria-hidden="true">
+  <!-- isometric L-bracket / shelf support -->
+  <g fill="none" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M70 108 L70 52 L130 28 L130 52 L94 66 L94 108 Z" fill="#0B3C49" stroke="#22D3E0" stroke-width="1.6"/>
+    <path d="M70 52 L130 28 L130 52 L70 76 Z" fill="#123E4A" stroke="#22D3E0" stroke-width="1.6"/>
+    <path d="M70 76 L94 66 L94 108 L70 108 Z" fill="#0E3340" stroke="#22D3E0" stroke-width="1.6"/>
+    <path d="M94 108 L148 86 L148 70 L130 52 L130 86 L94 108 Z" fill="#FF6B2C" stroke="#FF8A55" stroke-width="1.2"/>
+    <path d="M82 64 L82 96" stroke="#22D3E0" stroke-width="1.2" opacity="0.6"/>
+    <circle cx="82" cy="70" r="2.2" fill="#22D3E0"/>
+    <circle cx="82" cy="90" r="2.2" fill="#22D3E0"/>
+  </g>
+</svg>
+      </div>
+      <div class="folio-body">
+        <h3>Suportes</h3>
+        <p>Apoios, ganchos e peças que resolvem um encaixe do dia a dia.</p>
+      </div>
+    </article>
+    <article class="folio">
+      <div class="folio-art">
+        <span class="ex">Exemplo</span>
+        
+<svg viewBox="0 0 200 150" aria-hidden="true">
+  <g transform="translate(46,58) scale(0.22)"><path fill="#22D3E0" d="M0 -7.6C4.2 -7.6 7.6 -4.2 7.6 0C7.6 2.73 6.16 5.12 4 6.46V38.01H-4V6.46C-6.16 5.12 -7.6 2.73 -7.6 0C-7.6 -4.2 -4.2 -7.6 0 -7.6Z"/>
+<path fill="#E8F6F8" d="M-17 46H17V66H-17Z"/>
+<path fill="#E8F6F8" d="M19.79 74 33.71 94H-33.71L-19.79 74Z"/>
+<path fill="#E8F6F8" d="M39.29 102 53.21 122H-53.21L-39.29 102Z"/>
+<path fill="#E8F6F8" d="M54.55 130 47.27 150H-47.27L-54.55 130Z"/>
+<path fill="#E8F6F8" d="M44.36 158 37.09 178H-37.09L-44.36 158Z"/>
+<path fill="#E8F6F8" d="M34.18 186 26.91 206H-26.91L-34.18 186Z"/>
+<path fill="#E8F6F8" d="M24 214 16.73 234H-16.73L-24 214Z"/>
+<path fill="#FF6B2C" d="M13.82 242 0 280 -13.82 242Z"/></g>
+  <g transform="translate(100,42) scale(0.28)"><path fill="#22D3E0" d="M0 -7.6C4.2 -7.6 7.6 -4.2 7.6 0C7.6 2.73 6.16 5.12 4 6.46V38.01H-4V6.46C-6.16 5.12 -7.6 2.73 -7.6 0C-7.6 -4.2 -4.2 -7.6 0 -7.6Z"/>
+<path fill="#E8F6F8" d="M-17 46H17V66H-17Z"/>
+<path fill="#E8F6F8" d="M19.79 74 33.71 94H-33.71L-19.79 74Z"/>
+<path fill="#E8F6F8" d="M39.29 102 53.21 122H-53.21L-39.29 102Z"/>
+<path fill="#E8F6F8" d="M54.55 130 47.27 150H-47.27L-54.55 130Z"/>
+<path fill="#E8F6F8" d="M44.36 158 37.09 178H-37.09L-44.36 158Z"/>
+<path fill="#E8F6F8" d="M34.18 186 26.91 206H-26.91L-34.18 186Z"/>
+<path fill="#E8F6F8" d="M24 214 16.73 234H-16.73L-24 214Z"/>
+<path fill="#FF6B2C" d="M13.82 242 0 280 -13.82 242Z"/></g>
+  <g transform="translate(154,62) scale(0.2)"><path fill="#22D3E0" d="M0 -7.6C4.2 -7.6 7.6 -4.2 7.6 0C7.6 2.73 6.16 5.12 4 6.46V38.01H-4V6.46C-6.16 5.12 -7.6 2.73 -7.6 0C-7.6 -4.2 -4.2 -7.6 0 -7.6Z"/>
+<path fill="#E8F6F8" d="M-17 46H17V66H-17Z"/>
+<path fill="#E8F6F8" d="M19.79 74 33.71 94H-33.71L-19.79 74Z"/>
+<path fill="#E8F6F8" d="M39.29 102 53.21 122H-53.21L-39.29 102Z"/>
+<path fill="#E8F6F8" d="M54.55 130 47.27 150H-47.27L-54.55 130Z"/>
+<path fill="#E8F6F8" d="M44.36 158 37.09 178H-37.09L-44.36 158Z"/>
+<path fill="#E8F6F8" d="M34.18 186 26.91 206H-26.91L-34.18 186Z"/>
+<path fill="#E8F6F8" d="M24 214 16.73 234H-16.73L-24 214Z"/>
+<path fill="#FF6B2C" d="M13.82 242 0 280 -13.82 242Z"/></g>
+</svg>
+      </div>
+      <div class="folio-body">
+        <h3>Brindes</h3>
+        <p>Pequenas tiragens para evento, loja ou presente, com a sua marca.</p>
+      </div>
+    </article>
+    <article class="folio">
+      <div class="folio-art">
+        <span class="ex">Exemplo</span>
+        
+<svg viewBox="0 0 200 150" aria-hidden="true">
+  <!-- exploded isometric cube layers -->
+  <g stroke-linejoin="round">
+    <path d="M100 18 L142 42 L100 66 L58 42 Z" fill="#E8F6F8" stroke="#22D3E0" stroke-width="1.2"/>
+    <path d="M100 34 L142 58 L100 82 L58 58 Z" fill="#0B3C49" stroke="#22D3E0" stroke-width="1.2"/>
+    <path d="M100 50 L142 74 L100 98 L58 74 Z" fill="#E8F6F8" stroke="#22D3E0" stroke-width="1.2"/>
+    <path d="M100 66 L142 90 L100 114 L58 90 Z" fill="#0B3C49" stroke="#22D3E0" stroke-width="1.2"/>
+    <path d="M100 86 L142 110 L100 134 L58 110 Z" fill="#FF6B2C" stroke="#FF8A55" stroke-width="1.2"/>
+  </g>
+</svg>
+      </div>
+      <div class="folio-body">
+        <h3>Protótipos</h3>
+        <p>Uma peça para testar forma, encaixe e tamanho antes de produzir mais.</p>
+      </div>
+    </article>
+    <article class="folio">
+      <div class="folio-art">
+        <span class="ex">Exemplo</span>
+        
+<svg viewBox="0 0 200 150" aria-hidden="true">
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <path d="M30 46 H92 V66 H80 V84 H92 V104 H30 Z" fill="#0B3C49" stroke="#22D3E0" stroke-width="1.6"/>
+    <path d="M108 46 H170 V104 H108 V84 H120 V66 H108 Z" fill="#133A44" stroke="#22D3E0" stroke-width="1.6"/>
+    <rect x="92" y="66" width="16" height="18" fill="#FF6B2C"/>
+    <rect x="80" y="66" width="12" height="18" fill="#22D3E0" opacity="0.35"/>
+    <rect x="108" y="66" width="12" height="18" fill="#22D3E0" opacity="0.35"/>
+  </g>
+</svg>
+      </div>
+      <div class="folio-body">
+        <h3>Reposição de peças</h3>
+        <p>Aquele suporte que quebrou e não se acha mais. A gente reconstrói.</p>
+      </div>
+    </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band-white" id="materiais">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker">Materiais</p>
+          <h2>O filamento certo para cada peça.</h2>
+        </div>
+        <div class="mat-grid">
+          <article class="mat">
+            <div class="swatch" style="background: linear-gradient(90deg, #22D3E0, #0B3C49);"></div>
+            <h3>PLA <span>o mais comum</span></h3>
+            <p>Bom para chaveiros, placas, protótipos e peças de uso leve. Acabamento limpo e fácil de imprimir.</p>
+          </article>
+          <article class="mat">
+            <div class="swatch" style="background: linear-gradient(90deg, #0B3C49, #FF6B2C);"></div>
+            <h3>PETG <span>mais resistente</span></h3>
+            <p>Um pouco mais flexível e durável. Indicado para suportes e peças que pedem mais esforço no dia a dia.</p>
+          </article>
+          <article class="mat">
+            <div class="swatch" style="background: linear-gradient(90deg, #FF6B2C, #22C58B);"></div>
+            <h3>TPU <span>flexível</span></h3>
+            <p>Quando a peça precisa dobrar ou absorver impacto. Combinamos no orçamento se fizer sentido para o seu caso.</p>
+          </article>
+        </div>
+        <p class="mat-foot">Enviamos o orçamento com material, tempo de impressão e prazo de entrega. A mesa da A1 Mini tem 18 × 18 × 18 cm; peças maiores podem ser impressas em partes.</p>
+      </div>
+    </section>
+
+    <section class="band-night" id="por-que">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker on-dark">Por que a Prumo</p>
+          <h2 class="on-dark">O prumo que imprime em camadas.</h2>
+          <p class="lead on-dark">O prumo é a ferramenta mais antiga da precisão: marca o ponto exato e deixa tudo no esquadro. A impressão 3D constrói do mesmo jeito — camada sobre camada, de baixo para cima.</p>
+        </div>
+        <div class="why-grid">
+          <article class="why">
+            <div class="why-icon"><svg class="ico" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1.5v5M10 6.5h4v2l3.5 4L12 22.5 6.5 12.5l3.5-4z"/></g></svg></div>
+            <h3>Precisão</h3>
+            <p>Medidas e tolerâncias claras, com décimos de milímetro. Prometemos só o que dá para cumprir.</p>
+          </article>
+          <article class="why">
+            <div class="why-icon"><svg class="ico" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="8" width="19" height="8" rx="1"/><path d="M6 8v3M9.5 8v4.5M13 8v3M16.5 8v4.5"/></g></svg></div>
+            <h3>Orçamento claro</h3>
+            <p>Material, tempo de impressão e prazo de entrega. Orçamento em até 24 h, sem surpresa no preço.</p>
+          </article>
+          <article class="why">
+            <div class="why-icon"><svg class="ico" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9.5" r="2.5"/></g></svg></div>
+            <h3>Feito em Manaus</h3>
+            <p>Laboratório técnico aqui na cidade. Conversa direta e peça combinada com você.</p>
+          </article>
+          <article class="why">
+            <div class="why-icon"><svg class="ico" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l8.5 4.9v9.2L12 21.5l-8.5-4.9V7.4z"/><path d="M12 12.3l8.5-4.9M12 12.3L3.5 7.4M12 12.3v9.2"/></g></svg></div>
+            <h3>3D, redes e sistemas</h3>
+            <p>Além da impressora, a gente cuida de redes, servidores e computadores. Sistemas vêm aí.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band-light" id="faq">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker">Perguntas frequentes</p>
+          <h2>Antes de chamar no WhatsApp.</h2>
+        </div>
+        <div class="faq-list">
+          
+    <details class="faq">
+      <summary>Como faço para pedir um orçamento?</summary>
+      <p class="faq-a">Preencha o formulário abaixo ou chame no WhatsApp. A gente responde com material, tempo de impressão e prazo de entrega. Orçamento em até 24 h, sem surpresa no preço.</p>
+    </details>
+    <details class="faq">
+      <summary>Preciso ter o arquivo 3D pronto?</summary>
+      <p class="faq-a">Não. Se você já tiver o arquivo (STL, 3MF, OBJ ou STEP), envie junto. Se tiver só a ideia, um desenho ou uma foto da peça, a gente modela e te mostra antes de imprimir.</p>
+    </details>
+    <details class="faq">
+      <summary>Quais materiais vocês usam?</summary>
+      <p class="faq-a">Principalmente PLA e PETG. Também trabalhamos com TPU quando a peça pede flexibilidade. O material fica combinado no orçamento.</p>
+    </details>
+    <details class="faq">
+      <summary>Qual o prazo de entrega?</summary>
+      <p class="faq-a">Depende do modelo, do material e da fila da impressora. O prazo entra no orçamento, junto com o tempo de impressão. A gente só confirma a data depois de ver a peça.</p>
+    </details>
+    <details class="faq">
+      <summary>Vocês atendem só em Manaus?</summary>
+      <p class="faq-a">O laboratório é em Manaus/AM. Retirada e entrega combinamos no orçamento. Para outras cidades, podemos conversar sobre envio.</p>
+    </details>
+    <details class="faq">
+      <summary>Também prestam serviço de redes e computadores?</summary>
+      <p class="faq-a">Sim. Cuidamos de redes, servidores e manutenção de computadores. Se a rede caiu, a gente resolve e explica o que houve. Desenvolvimento de sistemas está a caminho — se você já tem um projeto em mente, deixa um recado no orçamento.</p>
+    </details>
+    <details class="faq">
+      <summary>Qual impressora vocês usam?</summary>
+      <p class="faq-a">Uma Bambu Lab A1 Mini, com volume de 18 × 18 × 18 cm. É boa para peças pequenas e médias: chaveiros, placas, suportes, brindes, protótipos e reposição. Peças maiores podem ser impressas em partes.</p>
+    </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="band-night" id="orcamento">
+      <div class="wrap orc-grid">
+        <div class="orc-copy">
+          <p class="kicker on-dark">Orçamento</p>
+          <h2 class="on-dark">Conte o que você precisa.</h2>
+          <p class="lead on-dark">A gente responde em até 24 h, com material, tempo de impressão e prazo de entrega. Sem surpresa no preço.</p>
+          <ul class="orc-points">
+            <li><svg class="ico" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.2l2.4 2.4L16.2 9"/></g></svg> Arquivo, foto, desenho ou só a ideia — qualquer um serve para começar.</li>
+            <li><svg class="ico" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.2l2.4 2.4L16.2 9"/></g></svg> Redes e manutenção também entram por aqui.</li>
+            <li><svg class="ico" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.2l2.4 2.4L16.2 9"/></g></svg> Sistemas ainda está a caminho: deixe o recado se já tiver um projeto.</li>
+          </ul>
+        </div>
+        <form class="form-card" id="form-orcamento" novalidate>
+          <div class="form-grid">
+            <p class="form-error" id="form-error" role="alert"></p>
+            <label class="fld">Nome
+              <input type="text" name="nome" id="nome" autocomplete="name" required placeholder="Seu nome" maxlength="80">
+            </label>
+            <label class="fld">Serviço
+              <select name="servico" id="servico" required>
+                <option value="" disabled selected>Escolha uma opção</option>
+                <option value="Impressão 3D">Impressão 3D</option>
+                <option value="Redes e manutenção">Redes e manutenção</option>
+                <option value="Sistemas (interesse)">Sistemas (interesse)</option>
+                <option value="Outro">Outro</option>
+              </select>
+            </label>
+            <label class="fld">O que você precisa
+              <textarea name="mensagem" id="mensagem" required maxlength="2000" placeholder="Descreva a peça, o problema da rede ou o sistema que você tem em mente. Medidas, quantidade e prazo ajudam."></textarea>
+            </label>
+            <label class="check">
+              <input type="checkbox" name="arquivo" id="arquivo" value="sim">
+              Já tenho o arquivo 3D (STL, 3MF, OBJ ou STEP)
+            </label>
+            <button class="btn btn-primary" type="submit">
+              <svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19.5l.7-3.2A7.8 7.8 0 1 1 12 19.8a7.7 7.7 0 0 1-3.5-.8z"/><path d="M9.2 9.6c.2-.5.3-.5.6-.5h.5c.2 0 .3.1.4.4l.5 1.3c.1.2 0 .4-.1.5l-.4.5c-.1.1-.1.3 0 .4.3.5.8 1 1.4 1.4.1.1.3.1.4 0l.5-.4c.2-.2.4-.2.5-.1l1.3.5c.3.1.4.2.4.4v.5c0 .3 0 .4-.5.6A5.2 5.2 0 0 1 9.6 11c0-.3.1-.4.2-.6z"/></g></svg>
+              Enviar no WhatsApp
+            </button>
+            <p class="form-note">Vamos abrir o WhatsApp com a sua mensagem pronta para você revisar e enviar.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <a class="logo-link" href="#inicio" aria-label="Prumo 3D Lab">
+            <svg class="logo-h" viewBox="-83.31 -36.36 763.76 345.12" role="img" aria-label="Prumo 3D Lab"><path fill="#22D3E0" d="M0 -7.6C4.2 -7.6 7.6 -4.2 7.6 0C7.6 2.73 6.16 5.12 4 6.46V38.01H-4V6.46C-6.16 5.12 -7.6 2.73 -7.6 0C-7.6 -4.2 -4.2 -7.6 0 -7.6Z"/><path fill="#E8F6F8" d="M-17 46H17V66H-17Z"/><path fill="#E8F6F8" d="M19.79 74 33.71 94H-33.71L-19.79 74Z"/><path fill="#E8F6F8" d="M39.29 102 53.21 122H-53.21L-39.29 102Z"/><path fill="#E8F6F8" d="M54.55 130 47.27 150H-47.27L-54.55 130Z"/><path fill="#E8F6F8" d="M44.36 158 37.09 178H-37.09L-44.36 158Z"/><path fill="#E8F6F8" d="M34.18 186 26.91 206H-26.91L-34.18 186Z"/><path fill="#E8F6F8" d="M24 214 16.73 234H-16.73L-24 214Z"/><path fill="#FF6B2C" d="M13.82 242 0 280 -13.82 242Z"/><path fill="#E8F6F8" d="M111.5 207.88V79.11H134.44V90.21H137.77Q140.91 84.85 147.57 80.69Q154.23 76.53 166.63 76.53Q177.73 76.53 187.16 81.98Q196.6 87.44 202.33 97.99Q208.07 108.53 208.07 123.51V126.47Q208.07 141.46 202.33 152Q196.6 162.55 187.16 168.01Q177.73 173.46 166.63 173.46Q158.3 173.46 152.66 171.52Q147.02 169.58 143.59 166.53Q140.17 163.48 138.14 160.33H134.81V207.88ZM603.6 173.46Q589.91 173.46 578.99 167.92Q568.08 162.37 561.79 151.82Q555.5 141.27 555.5 126.47V123.51Q555.5 108.71 561.79 98.17Q568.08 87.62 578.99 82.08Q589.91 76.53 603.6 76.53Q617.29 76.53 628.2 82.08Q639.12 87.62 645.41 98.17Q651.7 108.71 651.7 123.51V126.47Q651.7 141.27 645.41 151.82Q639.12 162.37 628.2 167.92Q617.29 173.46 603.6 173.46ZM405.65 170.88V79.11H428.59V89.11H431.92Q434.32 84.48 439.87 81.06Q445.42 77.64 454.49 77.64Q464.29 77.64 470.21 81.43Q476.13 85.22 479.28 91.32H482.61Q485.75 85.4 491.49 81.52Q497.22 77.64 507.77 77.64Q516.28 77.64 523.21 81.24Q530.15 84.85 534.31 92.16Q538.48 99.46 538.48 110.56V170.88H515.17V112.23Q515.17 104.64 511.28 100.85Q507.4 97.06 500.37 97.06Q492.41 97.06 488.06 102.15Q483.72 107.24 483.72 116.67V170.88H460.41V112.23Q460.41 104.64 456.52 100.85Q452.64 97.06 445.61 97.06Q437.65 97.06 433.3 102.15Q428.96 107.24 428.96 116.67V170.88ZM330.35 172.35Q319.62 172.35 311.57 167.45Q303.53 162.55 299.09 153.86Q294.65 145.16 294.65 133.88V79.11H317.96V132.02Q317.96 142.38 323.04 147.56Q328.13 152.74 337.57 152.74Q348.3 152.74 354.22 145.62Q360.14 138.5 360.14 125.74V79.11H383.45V170.88H360.51V158.85H357.18Q354.96 163.48 348.85 167.92Q342.75 172.35 330.35 172.35ZM225.83 170.88V79.11H248.77V89.47H252.1Q254.13 83.93 258.85 81.34Q263.57 78.75 269.86 78.75H280.96V99.46H269.49Q260.61 99.46 254.87 104.18Q249.14 108.9 249.14 118.71V170.88ZM159.6 153.12Q170.51 153.12 177.63 146.18Q184.76 139.24 184.76 125.92V124.07Q184.76 110.75 177.54 103.81Q170.33 96.88 159.6 96.88Q148.87 96.88 141.65 103.81Q134.44 110.75 134.44 124.07V125.92Q134.44 139.24 141.65 146.18Q148.87 153.12 159.6 153.12ZM603.6 152.74Q614.33 152.74 621.36 145.81Q628.39 138.87 628.39 125.92V124.07Q628.39 111.12 621.45 104.18Q614.51 97.25 603.6 97.25Q592.87 97.25 585.84 104.18Q578.81 111.12 578.81 124.07V125.92Q578.81 138.87 585.84 145.81Q592.87 152.74 603.6 152.74Z"/><path fill="#22D3E0" d="M388.74 207.88V204.32H392.22V185.53H388.74V181.98H401.87Q404.2 181.98 405.94 182.77Q407.68 183.57 408.66 185.03Q409.64 186.49 409.64 188.49V188.86Q409.64 190.63 408.98 191.78Q408.31 192.93 407.37 193.56Q406.42 194.18 405.57 194.44V195.04Q406.42 195.26 407.4 195.91Q408.39 196.55 409.07 197.7Q409.75 198.85 409.75 200.7V201.07Q409.75 203.21 408.76 204.73Q407.76 206.25 406 207.06Q404.24 207.88 401.95 207.88ZM263.83 207.88V204.32H267.3V185.53H263.83V181.98H274.19Q279.37 181.98 282.12 184.6Q284.88 187.23 284.88 192.52V197.37Q284.88 202.66 282.12 205.27Q279.37 207.88 274.19 207.88ZM352.55 207.88 359.95 181.98H366.98L374.35 207.88H370.24L368.54 201.77H358.4L356.7 207.88ZM239.07 208.39Q236.22 208.39 234 207.36Q231.78 206.32 230.54 204.36Q229.31 202.4 229.31 199.7V199.03H233.19V199.62Q233.19 202.07 234.8 203.49Q236.41 204.91 239.07 204.91Q241.74 204.91 243.22 203.58Q244.7 202.25 244.7 200.22V199.88Q244.7 198.44 243.99 197.55Q243.29 196.66 242.11 196.24Q240.92 195.81 239.44 195.81H234.74V191.34L243.85 185.97V185.45H229.93V181.98H248.06V187.23L239.37 192.41V192.93H240.96Q242.92 192.93 244.66 193.67Q246.4 194.41 247.49 195.92Q248.58 197.44 248.58 199.77V200.22Q248.58 202.69 247.4 204.53Q246.21 206.36 244.07 207.38Q241.92 208.39 239.07 208.39ZM271.34 204.25H274.22Q277.59 204.25 279.22 202.55Q280.85 200.85 280.85 197.48V192.37Q280.85 188.97 279.22 187.3Q277.59 185.64 274.22 185.64H271.34ZM322.51 207.88V181.98H326.5V204.25H338.97V207.88ZM396.25 204.25H401.47Q403.46 204.25 404.61 203.29Q405.76 202.32 405.76 200.62V200.29Q405.76 198.59 404.63 197.63Q403.5 196.66 401.47 196.66H396.25ZM396.25 193H401.47Q403.35 193 404.5 192.06Q405.65 191.11 405.65 189.49V189.12Q405.65 187.49 404.52 186.54Q403.39 185.6 401.47 185.6H396.25ZM359.4 198.07H367.54L363.76 184.45H363.17Z"/></svg>
+          </a>
+          <p>Laboratório técnico em Manaus. Impressão 3D, redes e, em breve, sistemas. Sua ideia, camada por camada.</p>
+        </div>
+        <div class="foot-col">
+          <h3>Contato</h3>
+          <p><svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9.5" r="2.5"/></g></svg> <span>Manaus/AM</span></p>
+          <a data-email href="mailto:contato@prumo3dlab.com.br"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.8"/><path d="M15.8 12v1.6a2.6 2.6 0 0 0 5.2 0V12a9 9 0 1 0-3.6 7.2"/></g></svg> <span data-email-label>contato@prumo3dlab.com.br</span></a>
+          <a data-instagram href="https://instagram.com/prumo3dlab" target="_blank" rel="noopener noreferrer"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none"/></g></svg> <span data-ig-label>@prumo3dlab</span></a>
+          <a data-whatsapp data-message="Olá, Prumo 3D Lab! Quero um orçamento." href="#orcamento"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19.5l.7-3.2A7.8 7.8 0 1 1 12 19.8a7.7 7.7 0 0 1-3.5-.8z"/><path d="M9.2 9.6c.2-.5.3-.5.6-.5h.5c.2 0 .3.1.4.4l.5 1.3c.1.2 0 .4-.1.5l-.4.5c-.1.1-.1.3 0 .4.3.5.8 1 1.4 1.4.1.1.3.1.4 0l.5-.4c.2-.2.4-.2.5-.1l1.3.5c.3.1.4.2.4.4v.5c0 .3 0 .4-.5.6A5.2 5.2 0 0 1 9.6 11c0-.3.1-.4.2-.6z"/></g></svg> <span>WhatsApp</span></a>
+          <p data-cnpj hidden><svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="8" width="19" height="8" rx="1"/><path d="M6 8v3M9.5 8v4.5M13 8v3M16.5 8v4.5"/></g></svg> <span data-cnpj-label></span></p>
+        </div>
+        <div class="foot-col">
+          <h3>No site</h3>
+          <a href="#servicos">Serviços</a>
+          <a href="#como-funciona">Como funciona</a>
+          <a href="#portfolio">Portfólio</a>
+          <a href="#materiais">Materiais</a>
+          <a href="#faq">FAQ</a>
+          <a href="#orcamento">Orçamento</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <p>© 2026 Prumo 3D Lab · Manaus/AM</p>
+        <p>prumo 3D Lab · prumo Redes · prumo Sistemas</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  /* ============================================================
+     CONFIG — preencha antes de publicar.
+     WHATSAPP: só dígitos, com DDI 55 + DDD. Ex.: 55929XXXXXXXX
+     INSTAGRAM: handle sem @
+     EMAIL: e-mail de contato
+     CNPJ: deixe vazio até o MEI sair; se preencher, aparece no rodapé
+     ============================================================ */
+  const CONFIG = {
+    WHATSAPP: "5592900000000",
+    INSTAGRAM: "prumo3dlab",
+    EMAIL: "contato@prumo3dlab.com.br",
+    CNPJ: "",
+    CIDADE: "Manaus/AM",
+    SITE: "https://prumo3dlab.com.br"
+  };
+
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+  function whatsappUrl(text) {
+    const digits = String(CONFIG.WHATSAPP || "").replace(/\D/g, "");
+    const base = "https://wa.me/" + digits;
+    return text ? base + "?text=" + encodeURIComponent(text) : base;
+  }
+
+  function applyConfig() {
+    const waDefault = "Olá, Prumo 3D Lab! Quero um orçamento.";
+    $$("[data-whatsapp]").forEach((a) => {
+      a.href = whatsappUrl(a.dataset.message || waDefault);
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+    });
+    const mail = CONFIG.EMAIL || "";
+    $$("[data-email]").forEach((a) => { a.href = "mailto:" + mail; });
+    $$("[data-email-label]").forEach((n) => { n.textContent = mail; });
+    const ig = (CONFIG.INSTAGRAM || "").replace(/^@/, "");
+    $$("[data-instagram]").forEach((a) => {
+      a.href = "https://instagram.com/" + ig;
+    });
+    $$("[data-ig-label]").forEach((n) => { n.textContent = "@" + ig; });
+    if (CONFIG.CNPJ && CONFIG.CNPJ.trim()) {
+      $$("[data-cnpj]").forEach((n) => { n.hidden = false; });
+      $$("[data-cnpj-label]").forEach((n) => { n.textContent = "CNPJ " + CONFIG.CNPJ.trim(); });
+    }
+  }
+
+  function setupNav() {
+    const nav = $("#nav");
+    const btn = $(".nav-toggle", nav);
+    const links = $("#nav-links");
+    if (!btn) return;
+    const close = () => {
+      nav.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+      btn.setAttribute("aria-label", "Abrir menu");
+    };
+    btn.addEventListener("click", () => {
+      const open = !nav.classList.contains("is-open");
+      nav.classList.toggle("is-open", open);
+      btn.setAttribute("aria-expanded", String(open));
+      btn.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+    });
+    links.addEventListener("click", (e) => {
+      if (e.target.closest("a")) close();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") close();
+    });
+  }
+
+  function setupForm() {
+    const form = $("#form-orcamento");
+    const err = $("#form-error");
+    if (!form) return;
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const nome = ($("#nome").value || "").trim();
+      const servico = $("#servico").value;
+      const mensagem = ($("#mensagem").value || "").trim();
+      const arquivo = $("#arquivo").checked;
+      if (!nome || !servico || !mensagem) {
+        err.textContent = "Preencha nome, serviço e a descrição do que você precisa.";
+        err.classList.add("show");
+        return;
+      }
+      err.classList.remove("show");
+      let text = "Olá, Prumo 3D Lab! Quero um orçamento.\n\n";
+      text += "Nome: " + nome + "\n";
+      text += "Serviço: " + servico + "\n";
+      if (arquivo) text += "Já tenho o arquivo 3D.\n";
+      text += "\n" + mensagem;
+      const url = whatsappUrl(text);
+      const win = window.open(url, "_blank");
+      if (!win) window.location.href = url;
+    });
+  }
+
+  applyConfig();
+  setupNav();
+  setupForm();
+  </script>
+</body>
+</html>
