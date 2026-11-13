@@ -376,6 +376,48 @@ body.print .grow,body.print .active .grow{animation:none!important;transform:non
 body.print .flow,body.print .spin,body.print .float,body.print .pulse,body.print .bframe .vp img,body.print h2.title:after{animation:none!important}
 body.print .pulse{opacity:0}
 .mobile .tdinfo a{font-size:20px;white-space:nowrap;word-break:normal}.mobile .tdinfo .lk{font-size:12px}
+/* calendar slide */
+.tracks{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:30px}
+.track{padding:26px 28px 24px;position:relative;overflow:hidden}
+.track:before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:linear-gradient(90deg,#14B39A,#0B7A6A)}
+.track:nth-child(2):before{background:linear-gradient(90deg,#1E88E5,#0D47A1)}
+.th{display:flex;gap:18px;align-items:center}
+.th h3{font-size:34px;color:var(--navy)}
+.ts{font-size:21px;color:var(--muted);margin-top:4px}
+.ts b{color:var(--ink)}
+.cms{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:24px}
+.cm{background:#F5F8FB;border-radius:16px;overflow:hidden;text-align:center;padding-bottom:12px;border:1px solid #E3EBF2}
+.cmh{color:#fff;font:700 20px var(--text);padding:8px 0;letter-spacing:.06em;text-transform:uppercase}
+.cmh small{display:block;font-size:14px;opacity:.85}
+.cmh.t1{background:linear-gradient(135deg,#14B39A,#0B7A6A)}.cmh.t2{background:linear-gradient(135deg,#1E88E5,#0D47A1)}
+.dc{display:block;font:800 44px/1 var(--disp);color:var(--navy);margin-top:12px}
+.dc.ex{color:#9A5B00}
+.dc em{display:block;font:700 13px var(--text);font-style:normal;color:#8A5A00;background:#FFF3CD;border-radius:6px;margin:6px 8px 0;padding:3px 0}
+.tf{display:flex;align-items:center;gap:16px;margin-top:22px;padding-top:18px;border-top:1px dashed var(--line);font-size:20px;color:var(--muted)}
+.tf .big{font:800 64px/1 var(--disp);color:var(--navy)}
+.tf b{color:var(--ink)}
+.tf .tl2{font-size:30px;color:var(--teal);margin-left:auto}
+.tf .more{font:700 19px var(--text);color:var(--teal);background:#E7F6F1;padding:8px 14px;border-radius:12px}
+.closeq{padding:30px 10px 0 0}
+.closeq .q1{font:800 64px/1.05 var(--disp);color:#fff}
+.closeq .q1 span{display:block;background:linear-gradient(90deg,#7CC242,#14B39A 45%,#4FB3FF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.closeq p{font-size:26px;line-height:1.4;color:#D7E7F4;margin-top:26px}
+.mobile .tracks{grid-template-columns:1fr;gap:14px;margin-top:16px}
+.mobile .track{padding:18px 14px}
+.mobile .th h3{font-size:21px}.mobile .ts{font-size:15px}
+.mobile .cms{gap:5px;margin-top:14px}.mobile .cmh{font-size:12px;padding:5px 0}.mobile .cmh small{font-size:10px}
+.mobile .dc{font-size:24px;margin-top:8px}.mobile .dc em{font-size:9px;margin:4px 2px 0}
+.mobile .tf{flex-wrap:wrap;gap:10px;font-size:15px}.mobile .tf .big{font-size:40px}.mobile .tf .tl2{display:none}.mobile .tf .more{font-size:14px}
+.mobile .closeq .q1{font-size:32px}.mobile .closeq p{font-size:17px}
+.cm{padding-bottom:18px}.dc{font-size:56px;margin-top:16px}
+.nextm{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:28px}
+.nm{display:flex;gap:20px;align-items:center;padding:22px 28px;border-radius:20px;background:linear-gradient(135deg,#0B7A6A,#14B39A);color:#fff;box-shadow:0 14px 34px rgba(11,122,106,.25)}
+.nm.b{background:linear-gradient(135deg,#0D47A1,#1E88E5);box-shadow:0 14px 34px rgba(13,71,161,.25)}
+.nm .ic{font-size:50px;flex:none}
+.nm small{display:block;font:700 17px var(--text);letter-spacing:.12em;opacity:.9}
+.nm b{font:800 36px var(--disp)}
+.mobile .nextm{grid-template-columns:1fr;gap:10px;margin-top:14px}.mobile .nm{padding:14px 16px}.mobile .nm .ic{font-size:32px}.mobile .nm small{font-size:11px}.mobile .nm b{font-size:21px}
+.mobile .dc{font-size:24px;margin-top:8px}.mobile .cm{padding-bottom:10px}
 </style></head><body class="on-first"><svg width="0" height="0" style="position:absolute" aria-hidden="true">
 <defs>
 <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol>
@@ -738,22 +780,36 @@ body.print .pulse{opacity:0}
   </div>
 </section>
 
+<!-- CALENDARIO -->
+<section class="slide" data-title="Calendário de reuniões">
+  <div class="kicker rv" style="--i:0"><span class="n">11</span>Calendário de reuniões</div>
+  <h2 class="title rv" style="--i:1">Duas agendas, <span class="hl">um mesmo projeto</span></h2>
+  <div class="tracks">
+    <div class="track card rv fl" style="--i:2">
+      <div class="th"><div class="ibox g-teal"><svg class="ic"><use href="#i-users"/></svg></div><div><h3>Reuniões internas SMTH</h3><div class="ts">1ª e 3ª <b>terça-feira</b> · <b>10h</b> · Secretaria de Terras e Habitação</div></div></div>
+      <div class="cms"><div class="cm rv pop" style="--i:3"><div class="cmh t1">Nov<small>2026</small></div><span class="dc">17</span></div><div class="cm rv pop" style="--i:4"><div class="cmh t1">Dez<small>2026</small></div><span class="dc">01</span><span class="dc">15</span></div><div class="cm rv pop" style="--i:5"><div class="cmh t1">Jan<small>2027</small></div><span class="dc">05</span><span class="dc">19</span></div><div class="cm rv pop" style="--i:6"><div class="cmh t1">Fev<small>2027</small></div><span class="dc">02</span><span class="dc">16</span></div><div class="cm rv pop" style="--i:7"><div class="cmh t1">Mar<small>2027</small></div><span class="dc">02</span><span class="dc">16</span></div></div>
+      <div class="tf"><span class="big"><span class="count" data-to="41">41</span></span><span>reuniões programadas<br><b>nov/2026 → jul/2028</b></span><svg class="ic tl2"><use href="#i-arrow"/></svg><span class="more">abr/2027 … jul/2028</span></div>
+    </div>
+    <div class="track card rv fr" style="--i:3">
+      <div class="th"><div class="ibox g-blue"><svg class="ic"><use href="#i-grad"/></svg></div><div><h3>Prefeitura × UEA</h3><div class="ts">1ª e 3ª <b>quinta-feira</b> · horário e local <span class="tbd">a definir</span></div></div></div>
+      <div class="cms"><div class="cm rv pop" style="--i:4"><div class="cmh t2">Nov<small>2026</small></div><span class="dc ex">06<em>sex · inaugural</em></span><span class="dc">19</span></div><div class="cm rv pop" style="--i:5"><div class="cmh t2">Dez<small>2026</small></div><span class="dc">03</span><span class="dc">17</span></div><div class="cm rv pop" style="--i:6"><div class="cmh t2">Jan<small>2027</small></div><span class="dc">07</span><span class="dc">21</span></div><div class="cm rv pop" style="--i:7"><div class="cmh t2">Fev<small>2027</small></div><span class="dc">04</span><span class="dc">18</span></div><div class="cm rv pop" style="--i:8"><div class="cmh t2">Mar<small>2027</small></div><span class="dc">04</span><span class="dc">18</span></div></div>
+      <div class="tf"><span class="big"><span class="count" data-to="42">42</span></span><span>reuniões programadas<br><b>nov/2026 → jul/2028</b></span><svg class="ic tl2"><use href="#i-arrow"/></svg><span class="more">abr/2027 … jul/2028</span></div>
+    </div>
+  </div>
+  <div class="nextm">
+    <div class="nm rv pop" style="--i:9"><svg class="ic"><use href="#i-cal"/></svg><div><small>PRÓXIMA REUNIÃO INTERNA SMTH</small><b>terça, 17/11/2026 · 10h</b></div></div>
+    <div class="nm b rv pop" style="--i:10"><svg class="ic"><use href="#i-cal"/></svg><div><small>PRÓXIMA REUNIÃO PREFEITURA × UEA</small><b>quinta, 19/11/2026</b></div></div>
+  </div>
+  <div class="src">Fontes: calendário interno SMTH (terças) e calendário de reuniões Prefeitura de Coari × UEA (quintas). Datas sujeitas a ajustes por feriados ou necessidades administrativas. 06/11/2026 foi exceção (sexta-feira).</div>
+</section>
+
 <!-- 10 PROXIMOS PASSOS -->
 <section class="slide dark" data-title="Próximos passos">
   <svg class="deco" style="right:-200px;bottom:-260px;width:900px;opacity:.3" viewBox="0 0 760 760"><use href="#i-topo"/></svg>
-  <div class="kicker rv" style="--i:0"><span class="n">11</span>Próximos passos</div>
-  <h2 class="title rv" style="--i:1">Reuniões “Requisitos e Gestão”</h2>
+  <div class="kicker rv" style="--i:0"><span class="n">12</span>Próximos passos</div>
+  <h2 class="title rv" style="--i:1">O que fazemos agora</h2>
   <div class="next">
-    <div>
-      <div class="cal">
-        <div class="card month rv pop" style="--i:2"><div class="mh">Nov<small>2026</small></div><div class="d">19</div></div>
-        <div class="card month rv pop" style="--i:3"><div class="mh">Dez<small>2026</small></div><div class="d">03</div><div class="d">17</div></div>
-        <div class="card month rv pop" style="--i:4"><div class="mh">Jan<small>2027</small></div><div class="d">07</div><div class="d">21</div></div>
-        <div class="card month rv pop" style="--i:5"><div class="mh">Fev<small>2027</small></div><div class="d">04</div><div class="d">18</div></div>
-        <div class="card month rv pop" style="--i:6"><div class="mh">Mar<small>2027</small></div><div class="d">04</div><div class="d">18</div></div>
-      </div>
-      <div class="card meetinfo rv" style="--i:7;color:#13263A"><svg class="ic" style="font-size:44px;color:#0E8C7A"><use href="#i-clock"/></svg><div>1ª e 3ª quinta-feira · 10h–11h<br>Local: <span class="tbd">a definir</span> · datas sujeitas a ajustes</div></div>
-    </div>
+    <div class="closeq rv fl" style="--i:2"><div class="q1">Não é apenas tecnologia.<span>É política pública qualificada.</span></div><p>Município 360 transforma dados dispersos em inteligência territorial, para que Coari conheça seu território e decida com segurança jurídica.</p></div>
     <ul class="todo">
       <li class="card rv fr" style="--i:4;color:#13263A"><span class="tick"><svg class="ic" style="color:#0E8C7A"><use href="#i-eye"/></svg></span><span><b>Secretarias:</b> testar o link e devolver à SMTH (prazo <span class="tbd">a definir</span>)</span></li>
       <li class="card rv fr" style="--i:5;color:#13263A"><span class="tick"><svg class="ic" style="color:#0E8C7A"><use href="#i-send"/></svg></span><span><b>SMTH:</b> consolidar e levar à UEA</span></li>
@@ -762,7 +818,7 @@ body.print .pulse{opacity:0}
       <li class="card rv fr" style="--i:8;color:#13263A"><span class="tick"><svg class="ic" style="color:#0E8C7A"><use href="#i-flag"/></svg></span><span>Próximo marco: <b>Entrega 2</b>, fim do mês 4</span></li>
     </ul>
   </div>
-  <div class="src">Não é apenas tecnologia. É política pública qualificada. · UEA / LAWin × Prefeitura de Coari</div>
+  <div class="src">UEA / LAWin × Prefeitura de Coari · SMTH</div>
 </section>
 
 <div id="hint"><kbd>←</kbd><kbd>→</kbd> navegar · <kbd>F</kbd> tela cheia</div>
